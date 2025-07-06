@@ -1,6 +1,7 @@
 package com.example.testingapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,11 +31,19 @@ class ItemAdapter(val dataList: ArrayList<ModelClass>, val context:Context): Rec
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
       val module:ModelClass = dataList[position]
 
         holder.image.setImageResource(module.image)
         holder.name.setText(module.name)
         holder.cardView.setOnClickListener{
+            val intent = Intent(context, SecondActivity::class.java)
+            intent.putExtra("name",module.name)
+            intent.putExtra("image",module.image)
+            intent.putExtra("description",module.description)
+            context.startActivity(intent)
+
+
             Toast.makeText(context,"${module.name}", Toast.LENGTH_SHORT).show()
         }
 
