@@ -31,7 +31,6 @@ class ItemAdapter(val dataList: ArrayList<ModelClass>, val context:Context): Rec
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
       val module:ModelClass = dataList[position]
 
         holder.image.setImageResource(module.image)
